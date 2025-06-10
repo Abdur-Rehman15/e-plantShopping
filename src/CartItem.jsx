@@ -17,7 +17,12 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleContinueShopping = (e) => {
     e.preventDefault();
-    onContinueShopping();
+    onContinueShopping(); // This will trigger the parent component's logic
+  };
+
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    alert('Checkout functionality will be implemented soon!');
   };
 
   const handleIncrement = (item) => {
@@ -89,16 +94,19 @@ const CartItem = ({ onContinueShopping }) => {
           ))
         )}
       </div>
-      <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
         <button 
           className="get-started-button" 
-          onClick={(e) => handleContinueShopping(e)}
+          onClick={handleContinueShopping}
         >
           Continue Shopping
         </button>
-        <br />
-        <button className="get-started-button1">Checkout</button>
+        <button 
+          className="get-started-button1" 
+          onClick={handleCheckout}
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
